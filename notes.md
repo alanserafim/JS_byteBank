@@ -14,3 +14,15 @@ Criação de classes através da palavra reservada class:
     cliente1.propriedade2 = numero;
     cliente1.propriedade3 = boleano;
 
+
+
+git commands
+
+git config --list
+git config --global/local user.name "alanserafim"
+git config --global/local user.email alanserafim@fatec.sp.gov.br
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/alanserafim/JS_byteBank.git  
+git push -u origin main
