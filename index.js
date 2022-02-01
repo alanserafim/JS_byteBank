@@ -2,25 +2,60 @@
 // ===========> classe tem atributos / propriedades / campo
 // ===========> objetos filhos das classes são chamados de instâncias
 
+
+// =========================> Classes
+
 class Cliente{
     nome;
     cpf;
-    agencia;
-    saldo;
 }
 
-const cliente1 = new Cliente();
-const cliente2 = new Cliente();
+class ContaCorrente {
+    agencia;
+    _saldo = 0;
 
+    sacar(valor){
+        if (this._saldo >= valor) {
+            this._saldo -= valor;
+            return valor;
+        }
+    }
+
+    depositar(valor){
+        // early return
+        if (valor < 0) return;
+        this._saldo += valor;
+    }
+}
+
+
+// ========> Processamento
+
+const cliente1 = new Cliente();
 cliente1.nome = "Ricardo";
 cliente1.cpf = 13652698769;
-cliente1.agencia = 1001;
-cliente1.saldo = 0;
 
+const cliente2 = new Cliente();
 cliente2.nome = "Alice";
 cliente2.cpf = 20066688896;
-cliente2.agencia = 1001;
-cliente2.saldo = 0;
 
-console.log(cliente1);
-console.log(cliente2);
+
+const contaCorrenteRicardo = new ContaCorrente();
+contaCorrenteRicardo.agencia = 1001;
+//Depósito
+contaCorrenteRicardo.depositar(200);
+//Saque
+const valorSacado = contaCorrenteRicardo.sacar(50);
+//log
+
+console.log(valorSacado);
+console.log(contaCorrenteRicardo)
+
+
+
+
+const contaCorrenteAlice = new ContaCorrente();
+contaCorrenteAlice.saldo = 1;
+contaCorrenteAlice.agencia = 1002;
+
+

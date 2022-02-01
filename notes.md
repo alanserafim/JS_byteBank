@@ -1,4 +1,6 @@
-# Classes em JS
+# Orientação a Objeto em JavaScript
+
+## Classes em JS
 
 Criação de classes através da palavra reservada class:
 
@@ -14,15 +16,64 @@ Criação de classes através da palavra reservada class:
     cliente1.propriedade2 = numero;
     cliente1.propriedade3 = boleano;
 
+## Funções dentro das classes são conhecidas como métodos
+
+    class ContaCorrente {
+        agencia;
+        saldo;
+       sacar(valor){
+            if (this.saldo >= valor) {
+                this.saldo -= valor;
+            }
+    }
 
 
-git commands
+Chamando o método:
 
-git config --list
-git config --global/local user.name "alanserafim"
-git config --global/local user.email alanserafim@fatec.sp.gov.br
-git add .
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/alanserafim/JS_byteBank.git  
-git push -u origin main
+    contaCorrenteRicardo.sacar(50);
+
+
+## Atributos e metódos privados
+
+**Padrão da comunidade JavaScript:** declarar a "variável" com underline no início.
+
+    class AlgumaCoisa{
+        _variavel;
+    }
+
+Toda vez que encontrarmos atributos e métodos declarados dessa forma, não devemos alterá-los.<br><br>
+
+
+**Sugestão em implementação:** declarar a "variável" com hashtag no início.
+    
+     class AlgumaCoisa{
+        #variavel = 0;
+    }
+
+O método/atributo fica inacessível fora da classe.
+
+
+
+## Return e early return
+
+Atribuimos o return para retornar um valor do método.
+
+Caso queira adicionar o valor de um parâmetro/variável do método a outra variável é retornando algum deles.
+
+    const valorSacado = contaCorrenteRicardo.sacar(50);
+
+    sacar(valor){
+        if (this._saldo >= valor) {
+            this._saldo -= valor;
+            return valor;
+        }
+    }
+
+O early return é uma estratégia de verificação do que não queremos logo no início do código. Dessa forma evitamos entrar em if encadeados para verificação de multiplos condicionais. 
+
+    depositar(valor){
+        if (valor < 0) return;
+        this._saldo += valor;
+    }
+
+
