@@ -101,7 +101,6 @@ Criando Classes em arquivos separados, e código centralizado na index.js
 
 * adicionar o type: module no package.json
 
-
         {
         "name": "bytebank",
         "version": "1.0.0",
@@ -109,3 +108,13 @@ Criando Classes em arquivos separados, e código centralizado na index.js
         "main": "index.js",
         "type": "module"
         }
+
+Atribuindo um objeto como atributo de outro objeto. 
+
+    É possível, porém deve ser evitado porque as alterações na classe refletirão no objeto. 
+
+ Recapitulando: quando passamos como parâmetro de um método os tipos primitivos, também chamados de tipos de valor, estamos na verdade copiando aquela informação para utilizá-la; já com tipos de referência, como objetos de classes, estamos trabalhando com a informação direta, e todas as alterações serão refletidas no objeto original.
+
+
+<a href="https://medium.com/@ethannam/javascripts-memory-model-7c972cd2c239#:~:text=JavaScript's%20memory%20model%3A%20the%20call%20stack%20and%20the%20heap,-For%20the%20purposes&text=The%20call%20stack%20is%20where,in%20addition%20to%20function%20calls).&text=The%20heap%20is%20where%20non,perfect%20for%20arrays%20and%20objects.">Gerenciamento de memória no JS - LINK</a>
+
