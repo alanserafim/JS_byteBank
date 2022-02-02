@@ -77,3 +77,35 @@ O early return é uma estratégia de verificação do que não queremos logo no 
     }
 
 
+## Modularizando o código
+
+Criando Classes em arquivos separados, e código centralizado na index.js
+
+* Criar arquivo com nome da classe com letra Maiuscula.
+
+* Colocar a palavra export antes do nome da Classe.
+    
+    export class Cliente{
+        nome;
+        cpf;
+    }
+
+* Importar a classe na index.js
+
+    import {Cliente} from "./Cliente.js"
+    import {ContaCorrente} from "./ContaCorrente.js"
+
+* Criar o package.json com as configuração do workspace
+
+        No terminal: npm init
+
+* adicionar o type: module no package.json
+
+
+        {
+        "name": "bytebank",
+        "version": "1.0.0",
+        "description": "Projeto do bytebank",
+        "main": "index.js",
+        "type": "module"
+        }

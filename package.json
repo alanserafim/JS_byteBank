@@ -1,0 +1,7 @@
+{
+  "name": "bytebank",
+  "version": "1.0.0",
+  "description": "Projeto do bytebank",
+  "main": "index.js",
+  "type": "module"
+}
