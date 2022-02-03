@@ -118,3 +118,36 @@ Atribuindo um objeto como atributo de outro objeto.
 
 <a href="https://medium.com/@ethannam/javascripts-memory-model-7c972cd2c239#:~:text=JavaScript's%20memory%20model%3A%20the%20call%20stack%20and%20the%20heap,-For%20the%20purposes&text=The%20call%20stack%20is%20where,in%20addition%20to%20function%20calls).&text=The%20heap%20is%20where%20non,perfect%20for%20arrays%20and%20objects.">Gerenciamento de memória no JS - LINK</a>
 
+## Null e Undefined
+
+Undefined: Variável / atributo sem nenhum valor inicializdo/atribuido
+Null: valor intencionalmente atribuido a uma variável/atributo
+
+## Encapsulando com assessores com Getters e Setters
+
+São **Assessores de acesso?**. Usados em conjunto com atribuitos privados, permitindo o acesso de entrada e/ou saída e impedindo a atribuição direta pelo atributo.
+
+Usar assessores do tipo set é uma boa prática para garantirmos que a atribuição de propriedades está sempre segura.
+
+ex: permite a atribuição de acordo com determinada condição e permite o acesso ao retorno como atributo de saída.
+
+    _cliente;
+
+    set cliente(novoValor){
+        if(novoValor instanceof Cliente){
+            this._cliente = novoValor;
+        }
+    }
+
+    get cliente(){
+        return this._cliente;
+    }
+
+
+ex: permite somente o acesso a saída do saldo.
+
+    _saldo = 0;
+
+    get saldo(){
+        return this._saldo;
+    }

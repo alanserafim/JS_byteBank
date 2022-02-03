@@ -4,6 +4,6 @@
 
 **Alura Cursos Online**
 
-Course title: JavaScript: Programando a Orientação a Objetos
+**Course title**: JavaScript: Programando a Orientação a Objetos
 
-Instructor: Ricardo Bugan Debss
+**Instructor**: Ricardo Bugan Debss
