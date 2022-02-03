@@ -151,3 +151,57 @@ ex: permite somente o acesso a saída do saldo.
     get saldo(){
         return this._saldo;
     }
+
+
+## Constructor / Construtores
+
+Os construtores são utilizados para inicializar os atributo e junto com o encapsulamente não permitem a atribuição direta de valores.
+
+EX:
+
+    class Cliente{
+        nome;
+        _cpf;
+
+        get cpf(){
+            return this._cpf;
+        }
+
+        constructor(nome, cpf){
+            this.nome = nome;
+            this._cpf = cpf;
+        }
+
+    }
+
+    const cliente2 = new Cliente("Alice", 88822266698);
+
+
+Obs: para maiores informações pesquisar sobre gerenciadores de estado.
+
+
+## Atributos Estáticos
+
+Atributos que funcionam para toda a classe ao invés de funcionar para os atributos daquela classe.
+
+EX: 
+
+    
+    class ContaCorrente {
+    
+    static numeroDeContas = 0;
+    
+    constructor(cliente, agencia){
+        this.agencia = agencia;
+        this.cliente = cliente;
+        ContaCorrente.numeroDeContas += 1;
+    }
+
+    const cliente1 = new Cliente("Ricardo", 13652698769);
+    const cliente2 = new Cliente("Alice", 88822266698);
+    const contaCorrenteRicardo = new ContaCorrente(cliente1, 1001);
+    const conta2 = new ContaCorrente(cliente2, 102)
+
+    console.log(ContaCorrente.numeroDeContas);
+
+
