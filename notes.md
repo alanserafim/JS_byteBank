@@ -205,3 +205,8 @@ EX:
     console.log(ContaCorrente.numeroDeContas);
 
 
+## Boas práticas OO
+
+    Atributos devem ser inicializados dentro do construtor.
+
+
