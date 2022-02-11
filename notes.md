@@ -212,15 +212,15 @@ EX:
 
 ## Herança
 
-Você pode reutilizar (para evitar repetição de código) os atributos e métodos de uma classe "pai" em classe filho" através das palavras reservadas extends e super.
+Você pode reutilizar (para evitar repetição de código) os atributos e métodos de uma classe "mãe" em uma classe "filha" através das palavras reservadas extends e super.
 
         import { Conta } from "./Conta.js";
 
         export class ContaPoupanca extends Conta{
 
         constructor(saldoInicial, cliente, agencia){
-            // super chama o construtor da classe pai
-            // super.metodo() -> chama o metodo da classe pai
+            // super chama o construtor da classe mãe
+            // super.metodo() -> chama o metodo da classe mãe
             super(saldoInicial, cliente, agencia);
         }
 
@@ -229,4 +229,43 @@ Você pode reutilizar (para evitar repetição de código) os atributos e métod
 
 Ao criar um método na classe filho com o mesmo nome da classe pai o método é sobrescrito.
 
+
+## Classe abstrata
+
+Classe pensada para não ser instanciada diretamente, e sim herdada por outras classes. 
+
+    //Classe abstrata
+    export class Conta{
+
+    constructor(saldoInicial, cliente, agencia){
+        if (this.constructor == Conta){
+           throw new Error("Você não deveria instaciar um objeto do tipo conta diretamente");
+        }
+        this._saldo = saldoInicial;
+        this._cliente = cliente;
+        this._agencia = agencia;
+
+    }
+
+Lançamos um erro, através do throw new Error() que para a execução do código na tentatica de instanciar um objeto da classe abstrata.
+
+
+## Método abstrato
+
+Quando o design do código entende que um método deve ser obrigatoriamente sobrescrito. Podemos criar um método abstrato na classe mãe.
+
+Classe Mãe:
+
+     sacar(valor){
+        throw new Error("O método sacar da classe Conta é abstrato.")
+    }
+
+Classe filha
+
+    sacar(valor){
+        const taxa = 1.01;
+        return this._sacar(valor, taxa);
+    }
+
+Caso o método seja chamado sem ser sobrescrito, lançamos um erro de execução.
 
