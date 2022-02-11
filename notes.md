@@ -210,3 +210,23 @@ EX:
     Atributos devem ser inicializados dentro do construtor.
 
 
+## Herança
+
+Você pode reutilizar (para evitar repetição de código) os atributos e métodos de uma classe "pai" em classe filho" através das palavras reservadas extends e super.
+
+        import { Conta } from "./Conta.js";
+
+        export class ContaPoupanca extends Conta{
+
+        constructor(saldoInicial, cliente, agencia){
+            // super chama o construtor da classe pai
+            // super.metodo() -> chama o metodo da classe pai
+            super(saldoInicial, cliente, agencia);
+        }
+
+
+## Sobrescrever métodos / especializar código
+
+Ao criar um método na classe filho com o mesmo nome da classe pai o método é sobrescrito.
+
+
