@@ -273,4 +273,41 @@ Caso o método seja chamado sem ser sobrescrito, lançamos um erro de execução
 
 Podemos ter diferentes classes tratadas da mesma forma.
 
+Criamos o método de autenticação e onseguimos verificar vários tipos de objetos diferentes, conseguimos fazer a autenticação de um diretor, de um gerente, de um cliente, tanto de classes que estão dentro de uma árvore de herança, onde todas elas têm o método autenticar, quanto de um objeto que não tem herança nenhuma, que é um objeto solto, que também tem o método autenticar().
+
+SistemaAutenticacao.js
+
+    export class SistemaAutenticacao{
+    static login(autenticavel, senha){
+        if (SistemaAutenticacao.EhAutenticavel(autenticavel)){
+        return autenticavel.autenticar(senha);
+        }
+        return false;
+    }
+
+    static EhAutenticavel(autenticavel){
+        //verifica se chave autenticar existe dentro do objeto autenticavel e se é uma função
+        return "autenticar" in autenticavel && autenticavel.autenticar instanceof Function
+    }
+
+Funcionario.js (Classe mãe)
+
+        autenticar(senha){
+        return senha == this._senha;
+    }
+
+Cliente.js (Classe não relacionada a funcionario)
+
+    Não possui método de autenticar, nem provaca erro de execução na tentativa do mesmo.
+
+
+## Duck typing 
+
+    "se anda como pato, nada como um pato e faz quack como um pato, então provavelmente é um pato"
+
+
+Utilizado em liguagens dinamicamente tipadas o Duck typing (em português literal tipagem pato) é um estilo de tipagem em  que os métodos e propriedades de um objeto determinam a semântica válida, em vez de sua herança de uma classe particular ou implementação de uma interface explicita. O nome do conceito refere-se ao teste do pato, atribuído à James Whitcomb Riley, que pode ser expressa como se segue:
+
+
+Quando eu vejo um pássaro que caminha como um pato, nada como um pato e grasna como um pato, eu chamo aquele pássaro de pato.
 
