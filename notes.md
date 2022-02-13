@@ -269,3 +269,8 @@ Classe filha
 
 Caso o método seja chamado sem ser sobrescrito, lançamos um erro de execução.
 
+## Polimorfismo
+
+Podemos ter diferentes classes tratadas da mesma forma.
+
+
